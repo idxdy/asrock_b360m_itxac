@@ -30,6 +30,22 @@
 				<key>Path</key>
 				<string>SSDT-AWAC.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>power</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PM.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>NVRAM</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PMC.aml</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array/>
@@ -58,11 +74,11 @@
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
 			<key>DevirtualiseMmio</key>
-			<false/>
+			<true/>
 			<key>DisableSingleUser</key>
 			<false/>
 			<key>DisableVariableWrite</key>
-			<true/>
+			<false/>
 			<key>DiscardHibernateMap</key>
 			<false/>
 			<key>EnableSafeModeSlide</key>
@@ -78,6 +94,8 @@
 			<key>SetupVirtualMap</key>
 			<true/>
 			<key>ShrinkMemoryMap</key>
+			<false/>
+			<key>SignalAppleOS</key>
 			<false/>
 		</dict>
 	</dict>
@@ -96,18 +114,12 @@
 				<key>model</key>
 				<string>DW1820A (BCM4350) 802.11ac Wireless</string>
 				<key>name</key>
-				<data>CgAA</data>
+				<string>Airport</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Audio</string>
-				<key>device_type</key>
-				<string>Audio device</string>
 				<key>layout-id</key>
-				<data>BQAAAA==</data>
-				<key>model</key>
-				<string>ALC887</string>
+				<integer>5</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -120,31 +132,37 @@
 				<key>device_type</key>
 				<string>Display controller</string>
 				<key>enable-hdmi20</key>
-				<data>AQAAAA==</data>
+				<integer>1</integer>
 				<key>framebuffer-con0-busid</key>
-				<data>AQAAAA==</data>
+				<integer>1</integer>
 				<key>framebuffer-con0-enable</key>
-				<data>AQAAAA==</data>
+				<integer>1</integer>
 				<key>framebuffer-con0-pipe</key>
-				<data>EgAAAA==</data>
+				<integer>18</integer>
 				<key>framebuffer-con0-type</key>
 				<data>AAgAAA==</data>
 				<key>framebuffer-con1-busid</key>
-				<data>AgAAAA==</data>
+				<integer>2</integer>
 				<key>framebuffer-con1-enable</key>
-				<data>AQAAAA==</data>
+				<integer>1</integer>
 				<key>framebuffer-con1-pipe</key>
-				<data>EgAAAA==</data>
+				<integer>18</integer>
 				<key>framebuffer-con1-type</key>
 				<data>AAgAAA==</data>
+				<key>framebuffer-con2-busid</key>
+				<integer>6</integer>
 				<key>framebuffer-con2-enable</key>
-				<data>AQAAAA==</data>
+				<integer>1</integer>
 				<key>framebuffer-con2-pipe</key>
-				<data>EgAAAA==</data>
+				<integer>18</integer>
+				<key>framebuffer-con2-type</key>
+				<data>AAQAAA==</data>
 				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
+				<integer>1</integer>
 				<key>framebuffer-pipecount</key>
-				<data>AgAAAA==</data>
+				<integer>2</integer>
+				<key>framebuffer-unifiedmem</key>
+				<data>AAAAgA==</data>
 				<key>model</key>
 				<string>Intel UHD Graphics 630</string>
 			</dict>
@@ -240,9 +258,25 @@
 				<key>Comment</key>
 				<string>USB</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/USBInjectAll</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>USBPorts.kext</string>
+				<key>Comment</key>
+				<string>USB</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -259,6 +293,38 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VirtualSMC</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>SMCProcessor.kext</string>
+				<key>Comment</key>
+				<string>SMBus.temperature</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/SMCProcessor</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>SMCSuperIO.kext</string>
+				<key>Comment</key>
+				<string>SMBus.fans</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/SMCSuperIO</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -330,38 +396,6 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>SMCProcessor.kext</string>
-				<key>Comment</key>
-				<string>SMBus.temperature</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCProcessor</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>SMCSuperIO.kext</string>
-				<key>Comment</key>
-				<string>SMBus.fans</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCSuperIO</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
 		</array>
 		<key>Block</key>
 		<array/>
@@ -377,29 +411,31 @@
 		<key>Quirks</key>
 		<dict>
 			<key>AppleCpuPmCfgLock</key>
-			<true/>
+			<false/>
 			<key>AppleXcpmCfgLock</key>
-			<true/>
+			<false/>
 			<key>AppleXcpmExtraMsrs</key>
+			<false/>
+			<key>AppleXcpmForceBoost</key>
 			<false/>
 			<key>CustomSMBIOSGuid</key>
 			<false/>
 			<key>DisableIoMapper</key>
 			<false/>
 			<key>ExternalDiskIcons</key>
+			<true/>
+			<key>IncreasePciBarSize</key>
 			<false/>
 			<key>LapicKernelPanic</key>
 			<false/>
 			<key>PanicNoKextDump</key>
-			<false/>
+			<true/>
 			<key>PowerTimeoutKernelPanic</key>
 			<false/>
 			<key>ThirdPartyDrives</key>
 			<false/>
-			<key>ThirdPartyTrim</key>
-			<false/>
 			<key>XhciPortLimit</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>Misc</key>
@@ -411,7 +447,7 @@
 			<key>ConsoleBehaviourOs</key>
 			<string></string>
 			<key>ConsoleBehaviourUi</key>
-			<string></string>
+			<string>ForceText</string>
 			<key>ConsoleMode</key>
 			<string></string>
 			<key>HibernateMode</key>
@@ -423,7 +459,7 @@
 			<key>Resolution</key>
 			<string>2560×1440</string>
 			<key>ShowPicker</key>
-			<true/>
+			<false/>
 			<key>Timeout</key>
 			<integer>1</integer>
 			<key>UsePicker</key>
@@ -445,6 +481,10 @@
 		<key>Security</key>
 		<dict>
 			<key>AllowNvramReset</key>
+			<true/>
+			<key>AllowSetDefault</key>
+			<false/>
+			<key>AuthRestart</key>
 			<false/>
 			<key>ExposeSensitiveData</key>
 			<integer>3</integer>
@@ -472,11 +512,9 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 dark=0 debug=0x100</string>
+				<string>keepsyms=1 dark=0 debug=0x100 slide=1</string>
 				<key>csr-active-config</key>
 				<data>5wMAAA==</data>
-				<key>nvda_drv</key>
-				<data></data>
 				<key>prev-lang:kbd</key>
 				<data></data>
 			</dict>
@@ -493,7 +531,9 @@
 			</array>
 		</dict>
 		<key>LegacyEnable</key>
-		<true/>
+		<false/>
+		<key>LegacyOverwrite</key>
+		<false/>
 		<key>LegacySchema</key>
 		<dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
@@ -521,6 +561,8 @@
 				<string>BootOrder</string>
 			</array>
 		</dict>
+		<key>WriteFlash</key>
+		<false/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
@@ -541,76 +583,6 @@
 			<key>SystemUUID</key>
 			<string>CB838AF1-8237-4753-8BA2-7085C281B803</string>
 		</dict>
-		<key>PlatformNVRAM</key>
-		<dict>
-			<key>BID</key>
-			<string>Mac-7BA5B2DFE22DDD8C</string>
-			<key>FirmwareFeatures</key>
-			<string>66F48FFD 00000000</string>
-			<key>FirmwareFeaturesMask</key>
-			<string>7FFFDFFF 00000000</string>
-			<key>MLB</key>
-			<string>C07WKAZNJYVXABCDE</string>
-			<key>ROM</key>
-			<data>cIXCgbgD</data>
-		</dict>
-		<key>SMBIOS</key>
-		<dict>
-			<key>BIOSReleaseDate</key>
-			<string>11/14/2019</string>
-			<key>BIOSVendor</key>
-			<string></string>
-			<key>BIOSVersion</key>
-			<string>1037.60.58.0.0</string>
-			<key>BoardAssetTag</key>
-			<string></string>
-			<key>BoardLocationInChassis</key>
-			<string>Part Component</string>
-			<key>BoardManufacturer</key>
-			<string></string>
-			<key>BoardProduct</key>
-			<string>Mac-7BA5B2DFE22DDD8C</string>
-			<key>BoardSerialNumber</key>
-			<string>C07WKAZNJYVXABCDE</string>
-			<key>BoardType</key>
-			<integer>10</integer>
-			<key>BoardVersion</key>
-			<string>1.0</string>
-			<key>ChassisAssetTag</key>
-			<string>Mini-Aluminum</string>
-			<key>ChassisManufacturer</key>
-			<string>Apple Inc.</string>
-			<key>ChassisSerialNumber</key>
-			<string>C07ZW0QVJYVX</string>
-			<key>ChassisType</key>
-			<integer>9</integer>
-			<key>ChassisVersion</key>
-			<string>Mac-7BA5B2DFE22DDD8C</string>
-			<key>FirmwareFeatures</key>
-			<string>66F48FFD 00000000</string>
-			<key>FirmwareFeaturesMask</key>
-			<string>7FFFDFFF 00000000</string>
-			<key>MemoryFormFactor</key>
-			<string></string>
-			<key>PlatformFeature</key>
-			<integer>32</integer>
-			<key>ProcessorType</key>
-			<integer>0</integer>
-			<key>SystemFamily</key>
-			<string>Mac mini</string>
-			<key>SystemManufacturer</key>
-			<string></string>
-			<key>SystemProductName</key>
-			<string>Macmini8,1</string>
-			<key>SystemSKUNumber</key>
-			<string>Mac-7BA5B2DFE22DDD8C</string>
-			<key>SystemSerialNumber</key>
-			<string>C07WKAZNJYVX</string>
-			<key>SystemUUID</key>
-			<string>CB838AF1-8237-4753-8BA2-7085C281B803</string>
-			<key>SystemVersion</key>
-			<string>1.0</string>
-		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
 		<key>UpdateNVRAM</key>
@@ -628,9 +600,8 @@
 		<array>
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
-			<string>VirtualSmc.efi</string>
-			<string>VariableRuntimeDxe.efi</string>
 			<string>HFSPlus.efi</string>
+			<string>NTFS.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -661,6 +632,8 @@
 			<false/>
 			<key>AppleKeyMap</key>
 			<false/>
+			<key>AppleSmcIo</key>
+			<true/>
 			<key>AppleUserInterfaceTheme</key>
 			<false/>
 			<key>ConsoleControl</key>
@@ -672,6 +645,8 @@
 			<key>FirmwareVolume</key>
 			<false/>
 			<key>HashServices</key>
+			<false/>
+			<key>OSInfo</key>
 			<false/>
 			<key>UnicodeCollation</key>
 			<false/>

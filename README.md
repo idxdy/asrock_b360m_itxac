@@ -307,139 +307,98 @@ echo "${USER}    ALL = (ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
 # EFI
 
-Clover 5103
-
-OpenCore 0.5.3
+OpenCore 0.5.5
 
 ## 目录结构
 
 ```shell
 .
-├── EFI
-│   ├── APPLE
-│   │   └── EXTENSIONS
-│   │       └── Firmware.scap
-│   ├── BOOT
-│   │   ├── BOOTX64.efi
-│   │   ├── BOOTX64.efi.clover
-│   │   └── BOOTx64.efi.opencore
-│   ├── CLOVER
-│   │   ├── CLOVERX64.efi
-│   │   ├── config.plist
-│   │   ├── drivers
-│   │   │   └── UEFI
-│   │   │       ├── ApfsDriverLoader.efi
-│   │   │       ├── AudioDxe.efi
-│   │   │       ├── DataHubDxe.efi
-│   │   │       ├── EmuVariableUefi.efi
-│   │   │       ├── FSInject.efi
-│   │   │       ├── OsxAptioFix3Drv.efi
-│   │   │       └── VirtualSmc.efi
-│   │   ├── kexts
-│   │   │   └── Other
-│   │   │       ├── AirportBrcmFixup.kext
-│   │   │       ├── AppleALC.kext
-│   │   │       ├── BrcmBluetoothInjector.kext
-│   │   │       ├── BrcmFirmwareData.kext
-│   │   │       ├── BrcmPatchRAM3.kext
-│   │   │       ├── IntelMausi.kext
-│   │   │       ├── Lilu.kext
-│   │   │       ├── SMCProcessor.kext
-│   │   │       ├── SMCSuperIO.kext
-│   │   │       ├── USBInjectAll.kext
-│   │   │       ├── VirtualSMC.kext
-│   │   │       ├── WhateverGreen.kext
-│   │   │       └── XHCI-unsupported.kext
-│   │   ├── themes
-│   │   │   ├── Bootcamp
-│   │   │   └── Catalina
-│   │   └── tools
-│   │       ├── Shell32.efi
-│   │       ├── Shell64.efi
-│   │       ├── Shell64U.efi
-│   │       └── bdmesg.efi
-│   └── OC
-│       ├── ACPI
-│       │   ├── SSDT-AWAC.aml
-│       │   ├── SSDT-EC-USBX.aml
-│       │   ├── SSDT-PLUG-_SB.PR00.aml
-│       │   └── SSDT-PLUG.aml
-│       ├── Drivers
-│       │   ├── ApfsDriverLoader.efi
-│       │   ├── FwRuntimeServices.efi
-│       │   ├── HFSPlus.efi
-│       │   ├── VariableRuntimeDxe.efi
-│       │   └── VirtualSmc.efi
-│       ├── Kexts
-│       │   ├── AirportBrcmFixup.kext
-│       │   ├── AppleALC.kext
-│       │   ├── BrcmBluetoothInjector.kext
-│       │   ├── BrcmFirmwareData.kext
-│       │   ├── BrcmPatchRAM3.kext
-│       │   ├── IntelMausi.kext
-│       │   ├── Lilu.kext
-│       │   ├── SMCProcessor.kext
-│       │   ├── SMCSuperIO.kext
-│       │   ├── USBInjectAll.kext
-│       │   ├── VirtualSMC.kext
-│       │   ├── WhateverGreen.kext
-│       │   └── XHCI-unsupported.kext
-│       ├── OpenCore.efi
-│       ├── Tools
-│       │   ├── Shell.efi
-│       │   ├── VerifyMsrE2.efi
-│       │   ├── libaistat.dylib
-│       │   ├── rtcread
-│       │   ├── smc
-│       │   └── smcread
-│       └── config.plist
-└── nvram.plist
+├── APPLE
+│   └── EXTENSIONS
+│       └── Firmware.scap
+├── BOOT
+│   └── BOOTx64.efi
+├── OC
+│   ├── ACPI
+│   │   ├── SSDT-AWAC.aml
+│   │   ├── SSDT-EC-USBX.aml
+│   │   ├── SSDT-EC.aml
+│   │   ├── SSDT-PLUG-_SB.PR00.aml
+│   │   ├── SSDT-PLUG.aml
+│   │   ├── SSDT-PM.aml
+│   │   ├── SSDT-PMC.aml
+│   │   └── SSDT-UIAC.aml
+│   ├── Drivers
+│   │   ├── ApfsDriverLoader.efi
+│   │   ├── FwRuntimeServices.efi
+│   │   ├── HFSPlus.efi
+│   │   └── NTFS.efi
+│   ├── Kexts
+│   │   ├── AirportBrcmFixup.kext
+│   │   ├── AppleALC.kext
+│   │   ├── BrcmBluetoothInjector.kext
+│   │   ├── BrcmFirmwareData.kext
+│   │   ├── BrcmPatchRAM3.kext
+│   │   ├── IntelMausi.kext
+│   │   ├── Lilu.kext
+│   │   ├── SMCProcessor.kext
+│   │   ├── SMCSuperIO.kext
+│   │   ├── USBInjectAll.kext
+│   │   ├── USBPorts.kext
+│   │   ├── VirtualSMC.kext
+│   │   ├── WhateverGreen.kext
+│   │   └── XHCI-unsupported.kext
+│   ├── OpenCore.efi
+│   ├── Tools
+│   │   ├── CleanNvram.efi
+│   │   ├── Shell.efi
+│   │   ├── VerifyMsrE2.efi
+│   │   ├── libaistat.dylib
+│   │   ├── rtcread
+│   │   ├── smc
+│   │   └── smcread
+│   └── config.plist
 ```
 
 
 
-## Clover
+## OpenCore
+
+
+
+具体配置参考, https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/config.plist/coffee-lake
+
+有图, 跟着图配置就行了, 不需要理解, 启动之后再看黑果小兵的, 理解具体什么意思, 再一个个改
 
 ### 相关图片
 
-#### acpi(ACPI设置)
+#### ACPI
 
-仅勾选`插件类型`
+![](pic/oc.acpi.png)
 
-![](pic/clover.acpi.png)
+#### Booter
 
-#### boot(引导参数)
+![](pic/oc.booter.png)
 
-`等待时间`设为0
+#### DeviceProperties
 
-`默认引导卷名` 设为 `MacOS` (引导界面定义的Entries)
+![](pic/oc.device-properties.png)
 
-`默认引导文件`设为`boot.efi`(MacOS 就是这个)
+#### Kernel
 
-![](pic/clover.boot.png)
+![](pic/oc.kernel.png)
 
-#### device(设备设置)
+#### Misc
 
-`Audio` 注入改为`5`, 勾选 `重置HDA`,
+![](pic/oc.misc.png)
 
-`属性`下的`设备`, 需要填上`显卡`和`dw1820a`的, 参考黑果小兵[显卡][gpu](文章末尾有主板的补丁, 搜索就行了)和[DW1820a][dw1820a]
+#### NVRAM
 
-![](pic/clover.device.png)
+![](pic/oc.nvram.png)
 
-#### gui(引导界面)
+#### UEFI
 
-两种选择, 二选一
-- `自动`, 适合通用场景
-- `自定义条目` , 我的不一定适合你, 指定适合自己的`类型`(OSX), `卷`(选择系统所在的卷的label), `标题/完整标题`(MacOS)这三个
-
-![](pic/clover.gui.png)
-
-#### kext(内核和驱动补丁)
-![](pic/clover.kext.png)
-
-#### smbios(机型设置)
-`序列号` 点`生成新的`, SmUUID点`生成新的`, `Board Serial Number`=刚生成的序列号+ABCDE凑成17位
-![](pic/clover.smbios.png)
+![](pic/oc.uefi.png)
 
 
 
@@ -490,26 +449,19 @@ OpenCore 0.5.3
 
 # 关于更新
 
-我是直接更新过一次10.15.1 → 10.15.2
+我是直接更新过两次次10.15.1 → 10.15.2 →10.15.3
 
-更新的时候要选择 `*-Data`那个分区
+更新的时候要选择 `*-Data`那个分区 -> clover
+
+我从10.15.2升级到10.15.3, 用的oc, 当时什么都没有选择, 直接就升级的
 
 
-
-# OpenCore
-
-> 未更新到1.0, 等更新到1.0才会作为主力
-
-关于nvram, 请看这里 https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/nvram
-
-具体配置参考, https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/config.plist/coffee-lake
-
-有图, 跟着图配置就行了, 不需要理解, 启动之后再看黑果小兵的, 理解具体什么意思, 再一个个改
 
 
 
 ## 完成项目
 
+### 硬件
 
 - [x] 板载有线网卡
 - [x] 板载声卡
@@ -519,18 +471,16 @@ OpenCore 0.5.3
 - [x] Bluetooth
 - [x] CPU温度
 - [x] 风扇转速
+- [x] NVRAM
+
+### 功能
+
 - [x] AirDrop(隔空投递)
 - [x] Handoff(接力)
 - [ ] Sidecar(随航) 待测试
-- [ ] 睡眠 唤醒 关机 重启 待测试
+- [x] 睡眠 唤醒 关机 重启 待测试
 - [x] 变频
 - [x] HEVC
-
-
-
-若使用我的配置, 进入`BOOT`目录, 删除`BOOTx64.efi`,  复制一份`BOOTx64.efi.opencore`, 把 `BOOTx64.efi.opencore` 改名为 `BOOTx64.efi`
-
-重启即可
 
 
 
