@@ -269,7 +269,16 @@ label=disk0s3 none auto rw,noauto
 
 uuid和label可以通过diskutil工具获取, 也可以通过 关于本机>系统报告>硬件  里面的硬盘信息
 
+> NTFS 不要开启区分大小写, 不然会导致错误无法挂载
 
+如果突然无法挂载进入win
+
+chkdsk <盘符> /f
+如
+
+```shell
+chkdsk d: /f
+```
 
 ## 用户目录
 
