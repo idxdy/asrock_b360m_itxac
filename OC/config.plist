@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>plugin-type=1</string>
+				<string>plug-type=1</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -29,14 +29,6 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-AWAC.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>power</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PM.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -88,6 +80,8 @@
 			<key>ForceExitBootServices</key>
 			<false/>
 			<key>ProtectCsmRegion</key>
+			<false/>
+			<key>ProtectSecureBoot</key>
 			<false/>
 			<key>ProvideCustomSlide</key>
 			<true/>
@@ -176,7 +170,7 @@
 				<key>BundlePath</key>
 				<string>Lilu.kext</string>
 				<key>Comment</key>
-				<string>base</string>
+				<string>基本库</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -192,7 +186,7 @@
 				<key>BundlePath</key>
 				<string>WhateverGreen.kext</string>
 				<key>Comment</key>
-				<string>Graphics Card</string>
+				<string>显卡</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -208,7 +202,7 @@
 				<key>BundlePath</key>
 				<string>AppleALC.kext</string>
 				<key>Comment</key>
-				<string>Sound Card</string>
+				<string>声卡</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -224,7 +218,7 @@
 				<key>BundlePath</key>
 				<string>IntelMausi.kext</string>
 				<key>Comment</key>
-				<string>Ethernet Card</string>
+				<string>网卡</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -245,22 +239,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>USBInjectAll.kext</string>
-				<key>Comment</key>
-				<string>USB</string>
-				<key>Enabled</key>
-				<false/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/USBInjectAll</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -302,13 +280,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>SMCProcessor.kext</string>
+				<string>SMCSuperIO.kext</string>
 				<key>Comment</key>
-				<string>SMBus.temperature</string>
+				<string>SMBus.风扇</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCProcessor</string>
+				<string>Contents/MacOS/SMCSuperIO</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -318,13 +296,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>SMCSuperIO.kext</string>
+				<string>SMCProcessor.kext</string>
 				<key>Comment</key>
-				<string>SMBus.fans</string>
+				<string>SMBus.处理器温度</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCSuperIO</string>
+				<string>Contents/MacOS/SMCProcessor</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -352,7 +330,7 @@
 				<key>BundlePath</key>
 				<string>BrcmBluetoothInjector.kext</string>
 				<key>Comment</key>
-				<string>BT</string>
+				<string>蓝牙</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -368,7 +346,7 @@
 				<key>BundlePath</key>
 				<string>BrcmFirmwareData.kext</string>
 				<key>Comment</key>
-				<string>BT</string>
+				<string>蓝牙</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -384,7 +362,7 @@
 				<key>BundlePath</key>
 				<string>BrcmPatchRAM3.kext</string>
 				<key>Comment</key>
-				<string>BT</string>
+				<string>蓝牙</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -422,6 +400,8 @@
 			<false/>
 			<key>DisableIoMapper</key>
 			<false/>
+			<key>DummyPowerManagement</key>
+			<false/>
 			<key>ExternalDiskIcons</key>
 			<true/>
 			<key>IncreasePciBarSize</key>
@@ -444,26 +424,22 @@
 		<array/>
 		<key>Boot</key>
 		<dict>
-			<key>ConsoleBehaviourOs</key>
-			<string></string>
-			<key>ConsoleBehaviourUi</key>
-			<string>ForceText</string>
-			<key>ConsoleMode</key>
-			<string></string>
 			<key>HibernateMode</key>
 			<string>None</string>
+			<key>HideAuxiliary</key>
+			<false/>
 			<key>HideSelf</key>
-			<true/>
+			<false/>
+			<key>PickerAttributes</key>
+			<integer>0</integer>
 			<key>PollAppleHotKeys</key>
-			<true/>
-			<key>Resolution</key>
-			<string>2560×1440</string>
+			<false/>
 			<key>ShowPicker</key>
 			<false/>
+			<key>TakeoffDelay</key>
+			<integer>0</integer>
 			<key>Timeout</key>
 			<integer>1</integer>
-			<key>UsePicker</key>
-			<true/>
 		</dict>
 		<key>Debug</key>
 		<dict>
@@ -490,12 +466,10 @@
 			<integer>3</integer>
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
-			<key>RequireSignature</key>
-			<false/>
-			<key>RequireVault</key>
-			<false/>
 			<key>ScanPolicy</key>
 			<integer>524547</integer>
+			<key>Vault</key>
+			<string>Optional</string>
 		</dict>
 		<key>Tools</key>
 		<array/>
@@ -601,7 +575,6 @@
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
 			<string>HFSPlus.efi</string>
-			<string>NTFS.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -622,6 +595,29 @@
 			<key>TimerResolution</key>
 			<integer>50000</integer>
 		</dict>
+		<key>Output</key>
+		<dict>
+			<key>ClearScreenOnModeSwitch</key>
+			<false/>
+			<key>ConsoleMode</key>
+			<string></string>
+			<key>DirectGopRendering</key>
+			<true/>
+			<key>IgnoreTextInGraphics</key>
+			<false/>
+			<key>ProvideConsoleGop</key>
+			<true/>
+			<key>ReconnectOnResChange</key>
+			<false/>
+			<key>ReplaceTabWithSpace</key>
+			<false/>
+			<key>Resolution</key>
+			<string>2560×1440</string>
+			<key>SanitiseClearScreen</key>
+			<true/>
+			<key>TextRenderer</key>
+			<string>SystemText</string>
+		</dict>
 		<key>Protocols</key>
 		<dict>
 			<key>AppleBootPolicy</key>
@@ -636,8 +632,6 @@
 			<true/>
 			<key>AppleUserInterfaceTheme</key>
 			<false/>
-			<key>ConsoleControl</key>
-			<true/>
 			<key>DataHub</key>
 			<false/>
 			<key>DeviceProperties</key>
@@ -653,29 +647,15 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
-			<key>AvoidHighAlloc</key>
-			<true/>
-			<key>ClearScreenOnModeSwitch</key>
-			<false/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
 			<key>IgnoreInvalidFlexRatio</key>
 			<true/>
-			<key>IgnoreTextInGraphics</key>
-			<true/>
-			<key>ProvideConsoleGop</key>
-			<true/>
-			<key>ReconnectOnResChange</key>
-			<false/>
 			<key>ReleaseUsbOwnership</key>
-			<false/>
-			<key>ReplaceTabWithSpace</key>
 			<false/>
 			<key>RequestBootVarFallback</key>
 			<false/>
 			<key>RequestBootVarRouting</key>
-			<true/>
-			<key>SanitiseClearScreen</key>
 			<true/>
 			<key>UnblockFsConnect</key>
 			<false/>
