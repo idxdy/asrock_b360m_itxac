@@ -271,7 +271,31 @@ uuid和label可以通过diskutil工具获取, 也可以通过 关于本机>系�
 
 > NTFS 不要开启区分大小写, 不然会导致错误无法挂载
 
-如果突然无法挂载进入win
+如果突然无法挂载或者突然以只读方式挂载, 这里有两种方案:
+
+1. 直接在mac修复
+
+   使用命令找打ntfs磁盘的label , 也就是IDENTIFIER
+
+   ```shell
+   diskutil list 
+   ```
+
+   使用ntfsfix修复
+
+   ```
+   sudo ntfsfix /dev/disk2s2
+   ```
+
+   修复完成, 挂载
+
+   ```shell
+   sudo diskutil mount disk2s2
+   ```
+
+   如果此方法不生效, 再试试另一种
+
+2. 进入win, 修复
 
 chkdsk <盘符> /f
 如
