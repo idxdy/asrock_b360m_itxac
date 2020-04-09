@@ -163,6 +163,8 @@
 				<data>AAAAgA==</data>
 				<key>model</key>
 				<string>Intel UHD Graphics 630</string>
+				<key>force-online</key>
+				<integer>1</integer>
 			</dict>
 		</dict>
 	</dict>
