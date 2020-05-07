@@ -36,18 +36,6 @@
 
 [ProperTree](https://github.com/corpnewt/ProperTree): 用于OpenCore
 
-
-
-## Clover相关
-
-[Clover Configurator](https://mackie100projects.altervista.org/download-clover-configurator/):  Clover配置工具
-
-[Clover](https://github.com/CloverHackyColor/CloverBootloader)  CloverBootloader github
-
-
-
-## OpenCore相关
-
 [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/): 用于OpenCore
 
 [OpenCore](https://github.com/acidanthera/OpenCorePkg) OpenCore github
@@ -150,7 +138,6 @@ idx EFI $ diskutil list
 - [x] 风扇转速
 - [x] AirDrop(隔空投递)
 - [x] Handoff(接力)
-- [x] Sidecar(随航)
 - [x] 睡眠 唤醒 关机 重启
 - [x] 变频
 - [x] HEVC
