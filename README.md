@@ -1,4 +1,9 @@
 华擎ASROCK b360m itx/ac黑苹果EFI
+
+最新版本的EFI, 我已经直接从Catalina(10.15.7)直接升级到了Big Sur, 使用没有问题
+
+brew的话, 需要参考这个 https://github.com/ustclug/mirrorhelp/pull/173
+
 ====
 
 作者: idx
